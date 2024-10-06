@@ -13,25 +13,27 @@ class StaffAuthController extends Controller
     // Show staff login form
     public function showLoginForm()
     {
-        return view('auth.s-login'); // Create this view later
+        return view('auth.staff-login'); // Create this view later
     }
 
     // Handle staff login
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+public function login(Request $request)
+{
+    $credentials = $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required'],
+    ]);
 
-        if (Auth::guard('staff')->attempt($credentials)) {
-            return redirect()->intended('staff/s-home'); // Adjust as needed
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+    if (Auth::guard('staff')->attempt($credentials)) {
+        return redirect()->intended(route('staff.s-home'));
     }
+
+    return back()->withErrors([
+        'email' => 'The provided credentials do not match our records.',
+    ]);
+}
+
+
 
     public function register(Request $request)
 {

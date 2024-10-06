@@ -1,5 +1,5 @@
 @extends('layouts.main')
-<x-staff-layout>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Contact Submissions</h2>
+    <h2>Inquiry Submissions</h2>
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -52,5 +52,5 @@
             </div>
         </div>
     </div>
-</x-staff-layout>
+
 @endsection

@@ -148,8 +148,6 @@ Route::resource('guests', GuestController::class);
 
 Route::get('staff/login', [StaffAuthController::class, 'showLoginForm'])->name('staff.login');
 Route::post('staff/login', [StaffAuthController::class, 'login']);
-Route::post('/staff/logout', [StaffAuthController::class, 'logout'])->name('staff.logout');
-
 
 Route::get('staff/register', [StaffAuthController::class, 'showRegisterForm'])
      ->name('staff.register')
@@ -160,7 +158,13 @@ Route::post('staff/register', [StaffAuthController::class, 'register'])
      ->middleware('auth');
 
 
- Route::get('staff/s-home', [ContactController::class, 'showContacts'])->name('staff.s-home')->middleware('auth');
+ Route::get('/staff/s-home', [ContactController::class, 'showContacts'])->name('staff.s-home')->middleware('auth');
+
+
+Route::middleware(['auth:staff'])->group(function () {
+    Route::get('/staff/s-home', [StaffHomeController::class, 'index'])->name('staff.s-home');
+});
+
 
 
 
