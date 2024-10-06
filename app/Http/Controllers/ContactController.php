@@ -36,7 +36,7 @@ class ContactController extends Controller
         $contacts = Contact::all();
 
         // Pass the $contacts variable to the view
-        return view('dashboard', compact('contacts'));
+        return view('staff.s-home', compact('contacts'));
     }
     // Delete a submission
     public function destroy($id)
@@ -44,7 +44,7 @@ class ContactController extends Controller
         $contact = Contact::findOrFail($id);
         $contact->delete();
 
-        return redirect()->route('dashboard')->with('success', 'Booking deleted successfully!');
+        return redirect()->route('staff.s-home')->with('success', 'Booking deleted successfully!');
     }
 }
 

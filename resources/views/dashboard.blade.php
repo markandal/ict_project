@@ -9,46 +9,33 @@
 
 
 @section('content')
-<div class="container">
-    <h2>Contact Submissions</h2>
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
+
+    <h3>Register New Staff</h3>
+    <form method="POST" action="{{ route('staff.register') }}">
+        @csrf
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
         </div>
-    @endif
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Package</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse ($contacts as $contact) <!-- Use forelse to handle empty state -->
-            <tr>
-                <td>{{ $contact->name }}</td>
-                <td>{{ $contact->phone }}</td>
-                <td>{{ $contact->email }}</td>
-                <td>{{ $contact->package }}</td>
-                <td>
-                    <form action="{{ route('contact.destroy', $contact->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            @empty
-            <tr>
-                <td colspan="5" class="text-center">No contacts found.</td>
-            </tr>
-            @endforelse
-        </tbody>
-    </table>
-</div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password_confirmation">Confirm Password</label>
+            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register Staff</button>
+    </form>
+
             </div>
         </div>
     </div>

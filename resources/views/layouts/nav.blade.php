@@ -79,6 +79,7 @@
                         <div class="dropdown-content" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('guest.login') }}">User Login</a>
                             <a class="dropdown-item" href="{{ route('guest.register') }}">User Register</a>
+                            <a class="dropdown-item" href="{{ route('staff.login') }}">Staff Login</a>
                             
                         </div>
                     </li>

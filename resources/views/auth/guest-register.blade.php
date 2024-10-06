@@ -35,7 +35,13 @@
         <input type="password" name="password_confirmation" id="password_confirmation" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ced4da; border-radius: 5px; font-size: 16px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);">
 
         <button type="submit" style="background-color: #343a40; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%;">Register</button>
+
+        <div style="text-align: center; margin-top: 15px;">
+        <p style="margin: 0;">Already have an account? <a href="{{ route('guest.login') }}" style="color: #007bff; text-decoration: none;">Login</a></p>
+    </div>
     </form>
+
+
 </body>
 
 

@@ -14,6 +14,7 @@ use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\GuestAuthController;
 use App\Http\Controllers\StaffAuthController;
 use App\Http\Controllers\GuestRegisterController;
+use App\Http\Controllers\StaffHomeController;
 
 // Guest Registration Routes
 Route::get('/guest/register', [GuestRegisterController::class, 'showRegistrationForm'])->name('guest.register.form');
@@ -59,9 +60,23 @@ Route::get('/create', function () {
     return view('create');
 });
 
+// Route::get('/guests/index', function () {
+//     return view('/guests/index');
+// });
+
+// Route::get('/guests/create', function () {
+//     return view('/guests/create');
+// });
+
+// Route::get('/guests/edit', function () {
+//     return view('/guests/edit');
+// });
+
 Route::get('/about', function () {
     return view('about');
 });
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -73,7 +88,7 @@ Route::get('/contact', function () {
 
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-Route::get('dashboard', [ContactController::class, 'showContacts'])->name('dashboard');
+Route::get('/staff/s-home', [ContactController::class, 'showContacts'])->name('staff.s-home');
 Route::delete('/admin/dashboard/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 
 Route::get('/programs', [TravelController::class, 'index'])->name('content.programs');
@@ -129,7 +144,24 @@ Route::get('/places', [PlaceController::class, 'index'])->name('places.index');
 
 
 
-Route::get('/guest/{id}', [GuestController::class, 'show'])->name('guest.show');
+Route::resource('guests', GuestController::class);
+
+Route::get('staff/login', [StaffAuthController::class, 'showLoginForm'])->name('staff.login');
+Route::post('staff/login', [StaffAuthController::class, 'login']);
+Route::post('/staff/logout', [StaffAuthController::class, 'logout'])->name('staff.logout');
+
+
+Route::get('staff/register', [StaffAuthController::class, 'showRegisterForm'])
+     ->name('staff.register')
+     ->middleware('auth'); // Ensure the user is authenticated
+
+Route::post('staff/register', [StaffAuthController::class, 'register'])
+     ->name('staff.register.post')
+     ->middleware('auth');
+
+
+ Route::get('staff/s-home', [ContactController::class, 'showContacts'])->name('staff.s-home')->middleware('auth');
+
 
 
 

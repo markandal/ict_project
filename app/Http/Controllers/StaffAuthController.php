@@ -2,19 +2,63 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Staff;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class StaffAuthController extends Controller
 {
-    public function login(Request $request)
-{
-    $credentials = $request->only('email', 'password');
-
-    if (Auth::guard('staff')->attempt($credentials)) {
-        return redirect()->intended('/about');
+    // Show staff login form
+    public function showLoginForm()
+    {
+        return view('auth.s-login'); // Create this view later
     }
 
-    return back()->withErrors(['email' => 'Invalid credentials.']);
+    // Handle staff login
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::guard('staff')->attempt($credentials)) {
+            return redirect()->intended('staff/s-home'); // Adjust as needed
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+    }
+
+    public function register(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:staff',
+        'password' => 'required|string|min:8|confirmed',
+    ]);
+
+    // Create the staff member with a hashed password
+    $staff = Staff::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+    ]);
+
+    return redirect()->route('dashboard'); // Adjust the redirect as necessary
 }
 
+
+    // Handle staff logout
+    public function logout(Request $request)
+    {
+        Auth::guard('staff')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 }
+
