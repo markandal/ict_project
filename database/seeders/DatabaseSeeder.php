@@ -26,11 +26,29 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $packages = [
-           [
+            [
                 'name' => 'Annapurna Base Camp Trek',
                 'link' => '/packages/1',
                 'price' => 799,
-                'description' => 'Witness a breathtaking sunrise over the Annapurna ranges from the stunning vantage point of Poon Hill. The early morning trek to this remarkable location will undoubtedly make the effort worthwhile.',
+                'summary' => 'Witness a breathtaking sunrise over the Annapurna ranges from the stunning vantage point of Poon Hill. The early morning trek to this remarkable location will undoubtedly make the effort worthwhile.',
+                'description' => '<p>Embark on an unforgettable journey to the Annapurna Base Camp. Experience breathtaking views and rich culture.</p>
+
+                <h2>Highlights:</h2>
+                <ul>
+                <li>Stunning mountain views</li>
+                <li>Diverse landscapes</li>
+                <li>Traditional Gurung villages</li>
+                <li>Experienced local guides</li>
+                </ul>
+
+                <h2>Itinerary:</h2>
+                <p><strong>12 Days:</strong> Arrival in Pokhara, trek to Ghandruk, Chhomrong, Machapuchare Base Camp, Annapurna Base Camp, and return.</p>
+
+                <h2>Price:</h2>
+                <p>From <strong>$799 per person</strong>. Includes accommodation, meals, and transportation.</p>
+
+                <h2>Best Time:</h2>
+                <p><strong>Spring (Mar-May)</strong> and <strong>Autumn (Sep-Nov)</strong> are ideal for trekking.</p>',
                 'duration' => 12,
                 'image' => 'images/anna.jpg',
             ],
@@ -38,34 +56,58 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Kathmandu Trek',
                 'link' => '/content/page2',
                 'price' => 599,
-                'description' => 'Discover the beauty of the Kathmandu Valley with this exclusive trekking package. Enjoy the perfect blend of culture, nature, and adventure as you explore the hills and traditional villages around the ancient city.',
+                'summary' => 'Embark on an unforgettable adventure through the enchanting landscapes of Kathmandu. Experience the rich cultural heritage as you explore ancient temples and vibrant local markets.',
+                'description' => '<p>Explore the beauty of the Kathmandu Valley with our trekking package. Experience culture, nature, and adventure.</p>
+
+                <h2>Highlights:</h2>
+                <ul>
+                <li>UNESCO World Heritage Sites</li>
+                <li>Himalayan views</li>
+                <li>Traditional villages</li>
+                <li>Experienced local guides</li>
+                </ul>
+
+                <h2>Itinerary:</h2>
+                <p><strong>7 Days:</strong> Arrival, city tour, trek to Chisapani, Nagarkot, Dhulikhel, farewell dinner, departure.</p>
+
+                <h2>Price:</h2>
+                <p>From <strong>$599 per person</strong>. Includes accommodation, meals, and transportation.</p>
+
+                <h2>Best Time:</h2>
+                <p><strong>Spring (Mar-May)</strong> and <strong>Autumn (Sep-Nov)</strong> are ideal for trekking.</p>',
+
                 'duration' => 7,
                 'image' => 'images/kath-main.jpg',
             ],
             [
-                'name' => 'Langtang Valley Trek (10 – 19 October 2024)',
+                'name' => 'Langtang Valley Trek',
                 'link' => '/content/page3',
-                'price' => 749,
-                'description' => 'The Langtang Valley Trek offers a breathtaking journey through the heart of the Himalayas in Nepal. Beginning in Syabrubesi, trekkers ascend through diverse landscapes, including lush forests and charming villages, while experiencing the rich culture of the Tamang and Sherpa communities.',
+                'price' => 799,
+                'summary' => 'Discover the breathtaking beauty of the Langtang Valley where stunning alpine landscapes meet rich cultural heritage. This trek takes you through picturesque villages lush forests and serene glacial lakes offering an immersive experience in nature\'s splendor.',
+                'description' => '<p>Embark on an adventure in the Langtang Valley with our trekking package. Experience the natural beauty and vibrant culture of the region.</p>
+
+                <h2>Highlights:</h2>
+                <ul>
+                <li>Panoramic views of Langtang Lirung</li>
+                <li>Glacial lakes and lush forests</li>
+                <li>Traditional Tamang villages</li>
+                <li>Experienced local guides</li>
+                </ul>
+
+                <h2>Itinerary:</h2>
+                <p><strong>10 Days:</strong> Arrival in Kathmandu city tour trek to Syabrubesi Lama Hotel Langtang Valley Kyanjin Gompa exploration farewell dinner and departure.</p>
+
+                <h2>Price:</h2>
+                <p>From <strong>$799 per person</strong>. Includes accommodation meals and transportation.</p>
+
+                <h2>Best Time:</h2>
+                <p><strong>Spring (Mar-May)</strong> and <strong>Autumn (Sep-Nov)</strong> are ideal for trekking.</p>',
+
                 'duration' => 10,
                 'image' => 'images/langtang-main.jpg',
             ],
-            [
-                'name' => 'Mount Everest Climbing Expedition (1 – 15 April 2025)',
-                'link' => '/content/page4',
-                'price' => 1000,
-                'description' => 'Join us for an unforgettable adventure on our Mount Everest Climbing Expedition! Experience the breathtaking views and extreme challenges of high-altitude climbing as you ascend to the roof of the world. Our program includes rigorous training and expert guidance to ensure your safety and success on this journey.',
-                'duration' => 15,
-                'image' => 'images/everest-main.jpg',
-            ],
-            [
-                'name' => 'Kathmandu Valley Temple Tour (5 – 12 November 2024)',
-                'link' => '/content/kathmandu-temple-tour',
-                'price' => 499,
-                'description' => 'Explore the rich cultural heritage and stunning architecture of the Kathmandu Valley on this immersive temple tour. Visit iconic sites such as Swayambhunath, Pashupatinath, and Boudhanath, while learning about the history and significance of these ancient landmarks. Enjoy guided tours through vibrant local markets and experience the unique traditions of Nepalese culture.',
-                'duration' => 7,
-                'image' => 'images/kath-temple.jpg',
-            ]
+
+
         ];
 
         // Create each package with the overridden values

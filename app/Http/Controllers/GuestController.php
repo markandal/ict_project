@@ -9,10 +9,11 @@ class GuestController extends Controller
 {
     // Display a list of guests
     public function index()
-    {
-        $guests = Guest::all();
-        return view('guests.index', compact('guests'));
-    }
+{
+    $guests = Guest::all(); // Fetch all guests
+    return view('dash-2', compact('guests')); // Return the view with guests data
+}
+
 
     // Show the form to create a new guest
     public function create()

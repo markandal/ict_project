@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Register Staff') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('dash-1')" :active="request()->routeIs('dash-1')">
+                        {{ __('Register User') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dash-2')" :active="request()->routeIs('dash-2')">
+                        {{ __('Delete Users') }}
+                    </x-nav-link>
                 </div>
             </div>
 

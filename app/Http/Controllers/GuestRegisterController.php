@@ -29,10 +29,7 @@ class GuestRegisterController extends Controller
             'password' => Hash::make($request->input('password')), // Hash the password
         ]);
 
-        // // Optionally, log the guest in immediately after registration
-        // Auth::guard('guest')->login($guest);
-
-        return redirect('dashboard')->with('success', 'Registration successful!'); // Redirect with success message
+        return redirect()->route('guest.login')->with('success', 'Registration successful!'); // Redirect with success message
     }
 }
 

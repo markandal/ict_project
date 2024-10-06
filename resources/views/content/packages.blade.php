@@ -29,9 +29,9 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $package['name'] }}</h5>
                             <p class="card-text">Starts at ${{ number_format($package['price']) }}</p>
-                            <p class="card-text">{{ $package['description'] }}</p>
+                            <p class="card-text">{{ $package['summary'] }}</p>
                             <p class="card-text"><small class="text-muted">{{ $package['duration'] }} days</small></p>
-                            <a href="{{ $package['link'] }}" class="btn btn-primary">See Details</a>
+                            <a href="packages/{{ $package['id'] }}" class="btn btn-primary">See Details</a>
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,12 @@
     <h3 style="text-align: center; margin-bottom: 20px;">Contact Form</h3>
 
     <div class="form-group" style="margin-bottom: 15px;">
-        <label for="name" style="font-weight: bold; display: block; margin-bottom: 5px;">Name</label>
+        <label for="package" style="font-weight: bold; display: block; margin-bottom: 5px;">Package</label>
+        <input type="text" class="form-control" name="package" readonly value="{{request('package')}}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+    </div>
+
+    <div class="form-group" style="margin-bottom: 15px;">
+        <label for="name" style="font-weight: bold; display: block; margin-bottom: 5px;">Your Name</label>
         <input type="text" class="form-control" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
     </div>
 
@@ -26,11 +31,6 @@
     <div class="form-group" style="margin-bottom: 15px;">
         <label for="email" style="font-weight: bold; display: block; margin-bottom: 5px;">Email</label>
         <input type="email" class="form-control" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-    </div>
-
-    <div class="form-group" style="margin-bottom: 15px;">
-        <label for="package" style="font-weight: bold; display: block; margin-bottom: 5px;">Package</label>
-        <input type="text" class="form-control" name="package" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
     </div>
 
     <div class="form-group" style="margin-bottom: 15px; text-align: center;">

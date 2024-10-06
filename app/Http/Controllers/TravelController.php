@@ -14,4 +14,11 @@ class TravelController extends Controller
 
         return view('content.packages', compact('packages'));
     }
+
+    public function show($id)
+    {
+
+        $package = Package::find($id);
+        return view('content.package', compact('package'));
+    }
 }

@@ -26,7 +26,7 @@ Route::get('/home', function () {
     return view('home'); // Make sure the home view exists in resources/views
 })->name('home');
 
-Route::get('/content/page1', function () {
+Route::get('/pacakes/page1', function () {
     return view('content/page1');
 });
 
@@ -36,6 +36,10 @@ Route::get('/content/page2', function () {
 
 Route::get('/content/page3', function () {
     return view('content/page3');
+});
+
+Route::get('/content/packages', function () {
+    return view('/content/packages');
 });
 
 Route::get('/blog', function () {
@@ -76,11 +80,25 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/packages', [TravelController::class, 'index'])->name('travel.packages');
+
+Route::get('/packages/{id}', [TravelController::class, 'show'])->name('travel.packages');
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::get('/dash-1', function () {
+    return view('dash-1');
+})->name('dash-1');
+
+Route::get('/dash-2', function () {
+    return view('dash-2');
+})->name('dash-2');
+
+
 
 Route::get('/contact', function () {
     return view('contact');
@@ -97,8 +115,7 @@ Route::get('/programs', [TravelController::class, 'index'])->name('content.progr
 
 Route::match(['get', 'post'], '/blog', [PostController::class, 'blog'])->name('blog');
 
-
-
+Route::get('/dash-2', [GuestController::class, 'index'])->name('dash-2');
 
 
 
@@ -164,6 +181,9 @@ Route::post('staff/register', [StaffAuthController::class, 'register'])
 Route::middleware(['auth:staff'])->group(function () {
     Route::get('/staff/s-home', [StaffHomeController::class, 'index'])->name('staff.s-home');
 });
+
+
+
 
 
 

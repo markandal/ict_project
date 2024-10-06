@@ -50,7 +50,7 @@ public function login(Request $request)
         'password' => Hash::make($request->password),
     ]);
 
-    return redirect()->route('dashboard'); // Adjust the redirect as necessary
+    return redirect()->route('staff.login'); // Adjust the redirect as necessary
 }
 
 
