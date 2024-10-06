@@ -22,16 +22,16 @@
         <h1 class="text-center">Trekking and Heritage Tours</h1>
         <p class="text-center">Select the Tour you are interested to Join.</p>
         <div class="row mt-4">
-            @foreach($places as $place)
+            @foreach($packages as $package)
                 <div class="col-md-6 mb-4">
                     <div class="card">
-                        <img src="{{ $place['image'] }}" class="card-img-top" alt="{{ $place['name'] }}">
+                        <img src="{{ $package['image'] }}" class="card-img-top" alt="{{ $package['name'] }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $place['name'] }}</h5>
-                            <p class="card-text">Starts at ${{ number_format($place['price']) }}</p>
-                            <p class="card-text">{{ $place['description'] }}</p>
-                            <p class="card-text"><small class="text-muted">{{ $place['duration'] }} days</small></p>
-                            <a href="{{ $place['link'] }}" class="btn btn-primary">See Details</a>
+                            <h5 class="card-title">{{ $package['name'] }}</h5>
+                            <p class="card-text">Starts at ${{ number_format($package['price']) }}</p>
+                            <p class="card-text">{{ $package['description'] }}</p>
+                            <p class="card-text"><small class="text-muted">{{ $package['duration'] }} days</small></p>
+                            <a href="{{ $package['link'] }}" class="btn btn-primary">See Details</a>
                         </div>
                     </div>
                 </div>

@@ -60,7 +60,7 @@
                         <a class="nav-link" href="{{ url('/home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/programs') }}">Packages</a>
+                        <a class="nav-link" href="{{ url('/packages') }}">Packages</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
@@ -71,7 +71,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown">
                             Login
@@ -79,7 +79,7 @@
                         <div class="dropdown-content" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('guest.login') }}">User Login</a>
                             <a class="dropdown-item" href="{{ route('guest.register') }}">User Register</a>
-                            
+
                         </div>
                     </li>
 

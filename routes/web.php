@@ -76,16 +76,11 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('dashboard', [ContactController::class, 'showContacts'])->name('dashboard');
 Route::delete('/admin/dashboard/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 
-Route::get('/programs', [TravelController::class, 'index'])->name('content.programs');
+Route::get('/packages', [TravelController::class, 'index'])->name('content.packages');
 
 //BLOG ROUTES
 
 Route::match(['get', 'post'], '/blog', [PostController::class, 'blog'])->name('blog');
-
-
-
-
-
 
 
 Route::middleware('auth')->group(function () {
