@@ -26,7 +26,7 @@ class ContactController extends Controller
 
         Contact::create($validatedData);
 
-        return redirect()->route('contact.create')->with('success', 'Contact form submitted successfully!');
+        return redirect()->route('contact.create')->with('success', 'Booking form submitted successfully!');
     }
 
     // Show submissions in the admin dashboard
@@ -44,7 +44,7 @@ class ContactController extends Controller
         $contact = Contact::findOrFail($id);
         $contact->delete();
 
-        return redirect()->route('dashboard')->with('success', 'Contact deleted successfully!');
+        return redirect()->route('dashboard')->with('success', 'Booking deleted successfully!');
     }
 }
 

@@ -23,6 +23,7 @@
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
+        
 
         <!-- Remember Me -->
         <div class="block mt-4">
@@ -39,9 +40,16 @@
                 </a>
             @endif
 
+
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
     </form>
+    <div class="mt-6">
+            <a href="{{ route('register') }}" class="text-sm text-gray-600 hover:text-gray-900">
+                {{ __('Don\'t have an account? Register here') }}
+            </a>
+        </div>
+    
 </x-guest-layout>

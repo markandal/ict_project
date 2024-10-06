@@ -57,10 +57,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Home</a>
+                        <a class="nav-link" href="{{ url('/home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/programs') }}">Programs</a>
+                        <a class="nav-link" href="{{ url('/programs') }}">Packages</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
@@ -72,19 +72,22 @@
                         <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
                     </li>
                     
-                    <!-- <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown">
                             Login
                         </a>
                         <div class="dropdown-content" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('guest.auth.g-login') }}">User Login</a>
-                            <a class="dropdown-item" href="{{ route('guest.auth.g-register') }}">User Register</a>
-                            <a class="dropdown-item" href="{{ route('guest.auth.g-login') }}">Staff Login</a>
+                            <a class="dropdown-item" href="{{ route('guest.login') }}">User Login</a>
+                            <a class="dropdown-item" href="{{ route('guest.register') }}">User Register</a>
+                            
                         </div>
-                    </li> -->
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/login') }}">ADMIN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/places') }}">Place</a>
                     </li>
                 </ul>
             </div>

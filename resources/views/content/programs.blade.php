@@ -3,13 +3,16 @@
 <style type="text/css">
 	<style>
         .container {
-            min-height: 100px; /* Prevents content container from collapsing */
+            min-height: 400px; /* Prevents content container from collapsing */
             padding: 20px; /* Consistent padding */
+
         }
 
         img, table {
             max-width: 100%; /* Responsive images and tables */
-            height: auto; /* Maintain aspect ratio */
+            height: 300px;
+            width: 100px; /* Maintain aspect ratio */
+            object-fit: cover;
         }
     </style>
 
@@ -28,14 +31,13 @@
                             <p class="card-text">Starts at ${{ number_format($place['price']) }}</p>
                             <p class="card-text">{{ $place['description'] }}</p>
                             <p class="card-text"><small class="text-muted">{{ $place['duration'] }} days</small></p>
-                            <a href="{{ $place['link'] }}" class="btn btn-primary">Join Now</a>
+                            <a href="{{ $place['link'] }}" class="btn btn-primary">See Details</a>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
-    <!-- Bootstrap JS and dependencies (optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -2,62 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guest;
+use App\Models\Guest; // Import the Guest model
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class GuestAuthController extends Controller
 {
-    // Show guest login form
     public function showLoginForm()
     {
-        return view('guest.auth.g-login');
+        return view('auth.guest-login'); // Return the login view
     }
 
-    // Handle guest login
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+        // Validate the request data
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
         ]);
 
-        if (Auth::guard('guest')->attempt($credentials)) {
-            return redirect()->intended('/'); // Adjust as needed
-        }
+        // Attempt to log the guest in
+        if (Auth::guard('guest')->attempt($request->only('email', 'password'))) {
+        // Set a custom welcome message
+        $guestName = Auth::guard('guest')->user()->name; // Get the guest's name
+        return redirect()->route('home')->with('guestName', $guestName); // Pass the guest's name to the session
+    
+    }
 
-        return back()->withErrors([
+        // If authentication fails, redirect back with an error message
+        return redirect()->back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
 
-    // Show guest registration form
-    public function showRegisterForm()
+    public function logout()
     {
-        return view('guest.auth.g-register');
-    }
-
-    // Handle guest registration
-    public function register(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:guests',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-
-        $guest = Guest::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        Auth::guard('guest')->login($guest);
-
-        return redirect()->intended('/'); // Adjust as needed
+        Auth::guard('guest')->logout(); // Log out the guest
+        return redirect('/guest/login')->with('success', 'You have been logged out.');
     }
 }
-
-
-

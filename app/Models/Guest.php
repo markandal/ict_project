@@ -1,21 +1,18 @@
 <?php
 
+
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable; // Make sure to use this trait
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class Guest extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use Notifiable;
 
-    protected $guarded = [];
-
-    protected $hidden = ['password', 'remember_token'];
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // Add any fields for the 'guests' table
+    protected $fillable = ['name', 'email', 'password'];
+    
+    // Optionally, you can add additional functionality for your Guest model here
 }
 
