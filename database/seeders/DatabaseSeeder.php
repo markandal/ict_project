@@ -2,28 +2,46 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 use App\Models\Package;
 
 
 class DatabaseSeeder extends Seeder
 {
-    // use WithoutModelEvents;
-
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@test.com',
+            'role' => 'admin',
+            'password' => Hash::make('password'),
+        ]);
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Staff One',
+            'email' => 'staff1@test.com',
+            'role' => 'staff',
+            'password' => Hash::make('password'),
+        ]);
+
+        User::factory()->create([
+            'name' => 'Staff Two',
+            'email' => 'staff2@test.com',
+            'role' => 'staff',
+            'password' => Hash::make('password'),
+        ]);
+
+        User::factory()->create([
+            'name' => 'John Doe',
+            'email' => 'john@test.com',
+            'role' => 'guest',
+            'password' => Hash::make('password'),
+        ]);
 
         $packages = [
             [

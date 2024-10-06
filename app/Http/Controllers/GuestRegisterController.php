@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guest; // Import the Guest model
+use App\Models\User; // Import the Guest model
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,7 +23,8 @@ class GuestRegisterController extends Controller
         ]);
 
         // Create a new guest
-        Guest::create([
+        User::create([
+            'role' => 'guest',
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')), // Hash the password

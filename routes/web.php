@@ -82,12 +82,15 @@ Route::get('/about', function () {
 
 Route::get('/packages', [TravelController::class, 'index'])->name('travel.packages');
 
-Route::get('/packages/{id}', [TravelController::class, 'show'])->name('travel.packages');
+Route::get('/packages/{id}', [TravelController::class, 'show'])->name('travel.package');
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})
+->middleware('role:admin')
+->name('dashboard');
+
 
 
 Route::get('/dash-1', function () {
@@ -106,7 +109,6 @@ Route::get('/contact', function () {
 
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-Route::get('/staff/s-home', [ContactController::class, 'showContacts'])->name('staff.s-home');
 Route::delete('/admin/dashboard/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 
 Route::get('/programs', [TravelController::class, 'index'])->name('content.programs');
@@ -116,8 +118,6 @@ Route::get('/programs', [TravelController::class, 'index'])->name('content.progr
 Route::match(['get', 'post'], '/blog', [PostController::class, 'blog'])->name('blog');
 
 Route::get('/dash-2', [GuestController::class, 'index'])->name('dash-2');
-
-
 
 
 Route::middleware('auth')->group(function () {
@@ -139,8 +139,6 @@ Route::post('/guest/register', [GuestRegisterController::class, 'register'])->na
 // Guest Login Routes
 Route::get('/guest/login', [GuestAuthController::class, 'showLoginForm'])->name('guest.login');
 Route::post('/guest/login', [GuestAuthController::class, 'login']);
-
-
 
 
 Route::get('/places', [PlaceController::class, 'index'])->name('places');
@@ -174,27 +172,8 @@ Route::post('staff/register', [StaffAuthController::class, 'register'])
      ->name('staff.register.post')
      ->middleware('auth');
 
-
- Route::get('/staff/s-home', [ContactController::class, 'showContacts'])->name('staff.s-home')->middleware('auth');
-
-
-Route::middleware(['auth:staff'])->group(function () {
-    Route::get('/staff/s-home', [StaffHomeController::class, 'index'])->name('staff.s-home');
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ Route::get('/staff/s-home', [ContactController::class, 'showContacts'])
+        ->name('staff.s-home')
+        ->middleware('role:staff');
 
 require __DIR__.'/auth.php';

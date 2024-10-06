@@ -68,28 +68,50 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/about') }}">About</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+                        <a class="nav-link" href="{{ url('/contact') }}">Contact Us</a>
                     </li>
 
-                    <li class="nav-item dropdown">
+<!--                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown">
                             Login
                         </a>
                         <div class="dropdown-content" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('guest.login') }}">User Login</a>
                             <a class="dropdown-item" href="{{ route('guest.register') }}">User Register</a>
-                            <a class="dropdown-item" href="{{ route('staff.login') }}">Staff Login</a> 
+                            <a class="dropdown-item" href="{{ route('staff.login') }}">Staff Login</a>
                         </div>
                     </li>
+ -->
+
+                @if (Auth::user())
+                    <li class="nav-item">
+                    @if (Auth::user()->role == 'admin')
+                       <a class="nav-link" href="{{ url('/dashboard') }}">Admin</a>
+                    @elseif (Auth::user()->role == 'staff')
+                       <a class="nav-link" href="{{ url('/staff/s-home') }}">Admin</a>
+                    @endif
+                    </li>
+
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/login') }}">ADMIN</a>
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
+                @else
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                    </li>
+                @endif
+
+<!--                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/places') }}">Place</a>
                     </li>
-                </ul>
+ -->                </ul>
             </div>
         </div>
     </nav>
