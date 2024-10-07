@@ -182,7 +182,7 @@ Route::post('staff/register', [StaffAuthController::class, 'register'])
      ->middleware('auth');
 
  Route::get('/staff/s-home', [ContactController::class, 'showContacts'])
-        ->name('staff.booking-list')
+        ->name('staff.s-home')
         ->middleware('role:staff');
 
 
