@@ -147,7 +147,7 @@ style="background-image: url('{{ asset('images/home-bg.jpg') }}');">
     <h1 class="display-4">Welcome to Airplus {{ Auth::guest()->name ?? '' }}!</h1>
     <p class="lead">Discover beautiful destinations, unique experiences, and unforgettable moments. Let us plan your next adventure!</p>
 
-    <a href="/programs" class="btn btn-primary btn-lg mt-4">See Our Programs</a>
+    <a href="/programs" class="btn btn-primary btn-lg mt-4">See Available Packages</a>
 </div>
 </div>
 

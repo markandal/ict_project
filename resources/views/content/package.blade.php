@@ -105,18 +105,17 @@
 
 <div class="place-container">
     <div class="place-image">
-        <img src="{{ asset('images/annapurna-main.jpg') }}" alt="Annapurna Base Camp" class="main-image">
+        <img src="{{ asset($package->main_image) }}" class="main-image">
         <div class="additional-images">
-            <img src="{{ asset('images/annapurna-1.jpg') }}" alt="Trek Image 1" class="side-image">
-            <img src="{{ asset('images/annapurna-2.jpg') }}" alt="Trek Image 2" class="side-image">
-            <img src="{{ asset('images/annapurna-3.jpg') }}" alt="Trek Image 3" class="side-image">
+            @foreach(json_decode($package->additional_images) as $image)
+                <img src="{{ asset($image) }}" class="side-image">
+            @endforeach
         </div>
     </div>
     <div class="place-info">
         <h1>{{ $package->name }}</h1>
         {!! $package->description !!}
-        <h2>Contact:</h2>
-        <button id="contact-button">Contact Us</button> <!-- Button triggers the modal -->
+        <button id="contact-button">Inquire</button> <!-- Button triggers the modal -->
     </div>
 </div>
 

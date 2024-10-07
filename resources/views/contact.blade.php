@@ -2,20 +2,21 @@
 
 @section('content')
 <div class="container">
-    <h2>Contact Us</h2>
+    <h2>Inquire</h2>
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
+
     <form action="{{ route('contact.store') }}" method="POST" style="max-width: 400px; margin: 50px auto; padding: 30px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
     @csrf
-    <h3 style="text-align: center; margin-bottom: 20px;">Contact Form</h3>
+    <h3 style="text-align: center; margin-bottom: 20px;">Inquiry Form</h3>
 
     <div class="form-group" style="margin-bottom: 15px;">
         <label for="package" style="font-weight: bold; display: block; margin-bottom: 5px;">Package</label>
-        <input type="text" class="form-control" name="package" readonly value="{{request('package')}}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        <input type="text" class="form-control" name="package"  value="{{request('package')}}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
     </div>
 
     <div class="form-group" style="margin-bottom: 15px;">

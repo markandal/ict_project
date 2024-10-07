@@ -7,7 +7,6 @@
 
     
 
-
 @section('content')
 <div class="container">
     <h2>Inquiry Submissions</h2>

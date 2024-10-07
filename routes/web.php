@@ -15,6 +15,7 @@ use App\Http\Controllers\GuestAuthController;
 use App\Http\Controllers\StaffAuthController;
 use App\Http\Controllers\GuestRegisterController;
 use App\Http\Controllers\StaffHomeController;
+use App\Http\Controllers\GuestBookingController;
 
 // Guest Registration Routes
 Route::get('/guest/register', [GuestRegisterController::class, 'showRegistrationForm'])->name('guest.register.form');
@@ -90,6 +91,14 @@ Route::get('/dashboard', function () {
 })
 ->middleware('role:admin')
 ->name('dashboard');
+
+
+Route::get('/guest/booking', function () {
+    return view('/guest/booking');
+})
+->middleware('role:guest')
+->name('guest/booking');
+
 
 
 
@@ -173,7 +182,20 @@ Route::post('staff/register', [StaffAuthController::class, 'register'])
      ->middleware('auth');
 
  Route::get('/staff/s-home', [ContactController::class, 'showContacts'])
-        ->name('staff.s-home')
+        ->name('staff.booking-list')
         ->middleware('role:staff');
+
+
+        Route::middleware(['role:guest'])->group(function () {
+    Route::get('/guest/booking', [GuestBookingController::class, 'create'])->name('guest.booking.create');
+    Route::post('/guest/booking', [GuestBookingController::class, 'store'])->name('guest.booking.store');
+});
+
+        Route::middleware(['role:staff'])->group(function () {
+  Route::get('/staff/booking-list', [GuestBookingController::class, 'index'])->name('staff.booking-list.index');
+    Route::delete('/staff/booking-list{id}', [GuestBookingController::class, 'destroy'])->name('bookings.destroy');
+ });
+
+
 
 require __DIR__.'/auth.php';

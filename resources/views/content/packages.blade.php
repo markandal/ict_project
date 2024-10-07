@@ -25,12 +25,12 @@
             @foreach($packages as $package)
                 <div class="col-md-6 mb-4">
                     <div class="card">
-                        <img src="{{ $package['image'] }}" class="card-img-top" alt="{{ $package['name'] }}">
+                        <img src="{{ $package->main_image }}" class="card-img-top" alt="{{ $package['name'] }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $package['name'] }}</h5>
-                            <p class="card-text">Starts at ${{ number_format($package['price']) }}</p>
-                            <p class="card-text">{{ $package['summary'] }}</p>
-                            <p class="card-text"><small class="text-muted">{{ $package['duration'] }} days</small></p>
+                            <h5 class="card-title">{{ $package->name }}</h5>
+                            <p class="card-text">Starts at ${{ number_format($package->price) }}</p>
+                            <p class="card-text">{{ $package->summary }}</p>
+                            <p class="card-text"><small class="text-muted">{{ $package->duration }} days</small></p>
                             <a href="packages/{{ $package['id'] }}" class="btn btn-primary">See Details</a>
                         </div>
                     </div>

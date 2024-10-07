@@ -46,7 +46,6 @@ class DatabaseSeeder extends Seeder
         $packages = [
             [
                 'name' => 'Annapurna Base Camp Trek',
-                'link' => '/packages/1',
                 'price' => 799,
                 'summary' => 'Witness a breathtaking sunrise over the Annapurna ranges from the stunning vantage point of Poon Hill. The early morning trek to this remarkable location will undoubtedly make the effort worthwhile.',
                 'description' => '<p>Embark on an unforgettable journey to the Annapurna Base Camp. Experience breathtaking views and rich culture.</p>
@@ -68,11 +67,11 @@ class DatabaseSeeder extends Seeder
                 <h2>Best Time:</h2>
                 <p><strong>Spring (Mar-May)</strong> and <strong>Autumn (Sep-Nov)</strong> are ideal for trekking.</p>',
                 'duration' => 12,
-                'image' => 'images/anna.jpg',
+                'main_image' => 'images/annapurna-main.jpg',
+                'additional_images' => json_encode(['images/annapurna-1.jpg', 'images/annapurna-2.jpg', 'images/annapurna-3.jpg']),
             ],
             [
                 'name' => 'Kathmandu Trek',
-                'link' => '/content/page2',
                 'price' => 599,
                 'summary' => 'Embark on an unforgettable adventure through the enchanting landscapes of Kathmandu. Experience the rich cultural heritage as you explore ancient temples and vibrant local markets.',
                 'description' => '<p>Explore the beauty of the Kathmandu Valley with our trekking package. Experience culture, nature, and adventure.</p>
@@ -95,11 +94,11 @@ class DatabaseSeeder extends Seeder
                 <p><strong>Spring (Mar-May)</strong> and <strong>Autumn (Sep-Nov)</strong> are ideal for trekking.</p>',
 
                 'duration' => 7,
-                'image' => 'images/kath-main.jpg',
+                'main_image' => 'images/kath-main.jpg',
+                'additional_images' => json_encode(['images/kath-1.jpg', 'images/kath-2.jpg', 'images/kath-3.jpg']),
             ],
             [
                 'name' => 'Langtang Valley Trek',
-                'link' => '/content/page3',
                 'price' => 799,
                 'summary' => 'Discover the breathtaking beauty of the Langtang Valley where stunning alpine landscapes meet rich cultural heritage. This trek takes you through picturesque villages lush forests and serene glacial lakes offering an immersive experience in nature\'s splendor.',
                 'description' => '<p>Embark on an adventure in the Langtang Valley with our trekking package. Experience the natural beauty and vibrant culture of the region.</p>
@@ -122,9 +121,9 @@ class DatabaseSeeder extends Seeder
                 <p><strong>Spring (Mar-May)</strong> and <strong>Autumn (Sep-Nov)</strong> are ideal for trekking.</p>',
 
                 'duration' => 10,
-                'image' => 'images/langtang-main.jpg',
+                'main_image' => 'images/langtang-main.jpg',
+                'additional_images' => json_encode(['images/langtang-1.jpg', 'images/langtang-2.jpg', 'images/langtang-3.jpg']),
             ],
-
 
         ];
 

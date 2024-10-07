@@ -1,5 +1,11 @@
+Dependencies
 
-Setup commands:
+Composer
+Laravel 11
+PHP 8
+
+Development commands:
+
 
 Javascript
 ```
